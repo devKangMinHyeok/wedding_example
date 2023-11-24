@@ -58,3 +58,82 @@ $ yarn remove @testing-library/jest-dom
 ```bash
 $ yarn add -D @types/testing-library__jest-dom @testing-library/jest-dom
 ```
+
+## Code Formatter & Linter
+
+#### ESLint Install with plugin, config
+
+```bash
+$ yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-config-react-app
+```
+
+#### make .eslintrc.json & .prettierrc
+
+if `package.json` have `eslintConfig` like below, remove them.
+
+```
+"eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+```
+
+create .eslintrc.json at root.
+
+```json
+{
+  "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error" // Tells ESLint to run the prettier plugin
+  }
+}
+```
+
+create .prettierrc at root.
+
+```json
+{
+  "useTabs": false,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "endOfLine": "lf",
+  "semi": false,
+  "arrowParens": "always"
+}
+```
+
+#### vscode json setting
+
+1. `cmd + ,`
+
+2. open json setting
+   <img width="1169" alt="image" src="https://github.com/devKangMinHyeok/wedding_example/assets/44657722/ee8a5af3-4023-47d8-aa06-874eabd416c3">
+
+3. add `source.fixAll.eslint` config to `editor.codeActionsOnSave`
+
+```json
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+},
+```
+
+#### vscode integration
+
+```bash
+$ yarn dlx @yarnpkg/sdks vscode
+```
+
+#### add script to package.json
+
+```json
+"scripts" : {
+  // ...
+  "lint" : "eslint \"scr/**/*.{js,jsx,ts,tsx}\"",
+  "lint:fix" : "eslint --fix \"scr/**/*.{js,jsx,ts,tsx}\"",
+}
+```
