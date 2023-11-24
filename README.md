@@ -137,3 +137,107 @@ $ yarn dlx @yarnpkg/sdks vscode
   "lint:fix" : "eslint --fix \"scr/**/*.{js,jsx,ts,tsx}\"",
 }
 ```
+
+## Craco
+
+[Craco](https://craco.js.org/) is configuration overide Tool for CRA.
+
+#### Craco Install
+
+```bash
+$ yarn add -D @craco/craco
+```
+
+```bash
+$ yarn add -D craco-alias
+```
+
+#### tsconfig.paths.json
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"]
+    }
+  }
+}
+```
+
+#### craco.config.js
+
+```js
+const CracoAlias = require('craco-alias')
+
+module.exports = {
+  plugins: [
+    {
+      plugin: CracoAlias,
+      options: {
+        source: 'tsconfig',
+        tsConfigPath: './tsconfig.paths.json',
+      },
+    },
+  ],
+}
+```
+
+#### extends tsconfig for tsconfig.paths.json
+
+```json
+{
+  "extends": "./tsconfig.paths.json",
+  // ...
+  "include": ["src", "tsconfig.paths.json"]
+}
+```
+
+## SCSS
+
+#### SCSS Install
+
+```bash
+$ yarn add classnames sass
+```
+
+#### Make new directory for to src & global setting
+
+```
+src
+ㄴ scss
+  ㄴ global.scss
+```
+
+global.scss
+
+```scss
+@charset "utf-8";
+
+:root {
+  --red: #ff0000;
+  --black: #000000;
+  --brown: #a52a2a;
+  --begie: #f5f5dc;
+}
+```
+
+index.tsx
+
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+
+import './scss/global.scss' // Add This
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+```
