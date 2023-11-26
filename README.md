@@ -241,3 +241,43 @@ root.render(
   </React.StrictMode>,
 )
 ```
+
+## JSON Server
+
+[Json server](https://www.npmjs.com/package/json-server) is fake server from json when mock api is needed.
+
+#### Install JSON Server
+
+```bash
+$ yarn add -D json-server
+```
+
+#### create db.json at root
+
+db.json
+
+```json
+{
+  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" }
+}
+```
+
+#### Add New script for run json-server
+
+```json
+"scripts": {
+    // ...
+    "dev:db" : "json-server --watch db.json --port=8888"
+  },
+```
+
+#### Many Features
+
+- [pagination](https://www.npmjs.com/package/json-server#paginate)
+- [Filtering](https://www.npmjs.com/package/json-server#filter)
+- [Sort](https://www.npmjs.com/package/json-server#sort)
+- [Slice](https://www.npmjs.com/package/json-server#slice)
+
+- [Remote schema](https://www.npmjs.com/package/json-server#remote-schema)
