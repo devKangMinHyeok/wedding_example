@@ -1,6 +1,8 @@
 # Wedding App
 
-## Package Manager
+## App Setting
+
+### 1. Package Manager
 
 This project use yarn berry (pnp).
 
@@ -59,7 +61,7 @@ $ yarn remove @testing-library/jest-dom
 $ yarn add -D @types/testing-library__jest-dom @testing-library/jest-dom
 ```
 
-## Code Formatter & Linter
+### 2. Code Formatter & Linter
 
 #### ESLint Install with plugin, config
 
@@ -138,7 +140,7 @@ $ yarn dlx @yarnpkg/sdks vscode
 }
 ```
 
-## Craco
+### 3. Craco
 
 [Craco](https://craco.js.org/) is configuration overide Tool for CRA.
 
@@ -194,7 +196,7 @@ module.exports = {
 }
 ```
 
-## SCSS
+### 4. SCSS
 
 #### SCSS Install
 
@@ -242,7 +244,7 @@ root.render(
 )
 ```
 
-## JSON Server
+### 5. JSON Server
 
 [Json server](https://www.npmjs.com/package/json-server) is fake server from json when mock api is needed.
 
@@ -281,3 +283,35 @@ db.json
 - [Slice](https://www.npmjs.com/package/json-server#slice)
 
 - [Remote schema](https://www.npmjs.com/package/json-server#remote-schema)
+
+## Implementation
+
+### 1. Font
+
+#### Formats
+
+![Alt text](https://github.com/devKangMinHyeok/wedding_example/assets/44657722/39ec8af8-6864-4f6d-bc79-c744337da57e)
+
+참고자료 :
+[웹에서 사용되는 font에 대해서 좀 알아보자](https://www.rldnd.net/font-)
+
+#### font 적용 방법
+
+1. 웹 font 서비스 이용
+
+```html
+<link href="font서비스" />
+```
+
+장점 : 추가 제거등의 관리가 쉬움
+
+단점 : 외부 서비스에 의존해야 함. 외부 서비스에서 폰트를 가져오는 동작이 느려지면, 초기 로딩 속도에도 지장을 줄 수 있음.
+
+2. font 다운로드
+
+```css
+@font-face {
+  font-family: 'font이름';
+  src: url('font경로');
+}
+```
