@@ -323,3 +323,15 @@ db.json
 > 폰트 파일은 src 내부에 asset > fonts 에 넣어줌.
 >
 > 이 경우에, 번들링에 포함되기 때문에 최적화 효과.
+
+[commit으로 확인하기 &rarr;](https://github.com/devKangMinHyeok/wedding_example/commit/232a2bff68fc7cb92df80533dbd10b26240c1cd8)
+
+## Features
+
+### loading, error 처리
+
+- fetch 사용시 loading, error state 관리
+- 공통 컴포넌트 폴더
+- loading, error 컴포넌트
+- scss keyframe
+- svg icon
