@@ -315,3 +315,11 @@ db.json
   src: url('font경로');
 }
 ```
+
+> **네이버 폰트 찾기** : https://hangeul.naver.com/font/nanum
+>
+> **폰트 파일 확장자 변환** : 네이버 폰트를 다운 받으면, ttf로 다운 받게된다. 이는 woff나 woff2보다 용량이 커서, woff로 변환하고 싶다면, https://cloudconvert.com/ttf-converter 에서 ttf에서 woff와 woff2로 변환할 수 있다.
+
+> 폰트 파일은 src 내부에 asset > fonts 에 넣어줌.
+>
+> 이 경우에, 번들링에 포함되기 때문에 최적화 효과.
